@@ -32,3 +32,5 @@ tmp = pytesseract.image_to_string(Image.open('imgcrop.gif'))
 print ("Temperature ouside: %s degree." % tmp)
 
 os.system('/usr/bin/pushbullet.sh "Temperature outside: %s degree."' % tmp)
+os.system('rm tmp.gif')
+os.system('rm imgcrop.gif')
