@@ -5,6 +5,12 @@ import os
 # Source
 url = 'http://www.bgc-jena.mpg.de/wetter/Chart_T.gif'
 
+
+def push_to_phone(txt):
+    txt = str(txt)
+    os.system('/usr/bin/pushbullet.sh "%s" &> /dev/null' % txt)
+
+
 # Download the image from the source
 
 urllib.urlretrieve(url, 'tmp.gif')
@@ -31,6 +37,6 @@ img.save("imgcrop.gif")
 tmp = pytesseract.image_to_string(Image.open('imgcrop.gif'))
 print ("Temperature ouside: %s degree." % tmp)
 
-os.system('/usr/bin/pushbullet.sh "Temperature outside: %s degree."' % tmp)
+push_to_phone("Temperature outside: %s degree." % tmp)
 os.system('rm tmp.gif')
 os.system('rm imgcrop.gif')
