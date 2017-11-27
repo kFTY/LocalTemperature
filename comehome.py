@@ -1,6 +1,11 @@
 import nmap
 nm = nmap.PortScanner()
-for host in nm.all_hosts():
-    print('----------------------------------------------------')
-    print('Host : %s (%s)' % (host, nm[host].hostname()))
-    print('State : %s' % nm[host].state())
+
+
+def CheckExist(ip_addr, port):
+    nm.scan(ip_addr, port)
+    return nm[ip_addr].state() == "up"
+
+
+if CheckExist("192.168.1.1", "22"):
+    print("R7000 is at home")
