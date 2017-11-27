@@ -2,6 +2,7 @@ import urllib
 from PIL import Image
 import pytesseract
 import os
+import telegram
 # Source
 url = 'http://www.bgc-jena.mpg.de/wetter/Chart_T.gif'
 
