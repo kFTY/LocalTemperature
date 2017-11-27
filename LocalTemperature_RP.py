@@ -8,7 +8,10 @@ url = 'http://www.bgc-jena.mpg.de/wetter/Chart_T.gif'
 
 def push_to_phone(txt):
     txt = str(txt)
-    os.system('/usr/bin/pushbullet.sh "%s" &> /dev/null' % txt)
+    TOKEN="498010819:AAHLAphkWugooms4lRIhHUyTfYXxfGk6DhM"
+    bot = telegram.Bot(token=TOKEN)
+    CHATID="146500374"
+    bot.send_message(chat_id=CHATID, text=txt)
 
 
 # Download the image from the source
